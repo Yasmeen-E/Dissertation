@@ -1,6 +1,12 @@
 file(REMOVE_RECURSE
   "CMakeFiles/OpenGLApp.dir/src/Main.cpp.o"
   "CMakeFiles/OpenGLApp.dir/src/Main.cpp.o.d"
+  "CMakeFiles/OpenGLApp.dir/src/Mesh.cpp.o"
+  "CMakeFiles/OpenGLApp.dir/src/Mesh.cpp.o.d"
+  "CMakeFiles/OpenGLApp.dir/src/Model.cpp.o"
+  "CMakeFiles/OpenGLApp.dir/src/Model.cpp.o.d"
+  "CMakeFiles/OpenGLApp.dir/src/Texture.cpp.o"
+  "CMakeFiles/OpenGLApp.dir/src/Texture.cpp.o.d"
   "CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o"
   "CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o.d"
   "OpenGLApp"

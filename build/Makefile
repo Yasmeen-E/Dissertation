@@ -153,6 +153,78 @@ src/Main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGLApp.dir/build.make CMakeFiles/OpenGLApp.dir/src/Main.cpp.s
 .PHONY : src/Main.cpp.s
 
+src/Mesh.o: src/Mesh.cpp.o
+.PHONY : src/Mesh.o
+
+# target to build an object file
+src/Mesh.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGLApp.dir/build.make CMakeFiles/OpenGLApp.dir/src/Mesh.cpp.o
+.PHONY : src/Mesh.cpp.o
+
+src/Mesh.i: src/Mesh.cpp.i
+.PHONY : src/Mesh.i
+
+# target to preprocess a source file
+src/Mesh.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGLApp.dir/build.make CMakeFiles/OpenGLApp.dir/src/Mesh.cpp.i
+.PHONY : src/Mesh.cpp.i
+
+src/Mesh.s: src/Mesh.cpp.s
+.PHONY : src/Mesh.s
+
+# target to generate assembly for a file
+src/Mesh.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGLApp.dir/build.make CMakeFiles/OpenGLApp.dir/src/Mesh.cpp.s
+.PHONY : src/Mesh.cpp.s
+
+src/Model.o: src/Model.cpp.o
+.PHONY : src/Model.o
+
+# target to build an object file
+src/Model.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGLApp.dir/build.make CMakeFiles/OpenGLApp.dir/src/Model.cpp.o
+.PHONY : src/Model.cpp.o
+
+src/Model.i: src/Model.cpp.i
+.PHONY : src/Model.i
+
+# target to preprocess a source file
+src/Model.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGLApp.dir/build.make CMakeFiles/OpenGLApp.dir/src/Model.cpp.i
+.PHONY : src/Model.cpp.i
+
+src/Model.s: src/Model.cpp.s
+.PHONY : src/Model.s
+
+# target to generate assembly for a file
+src/Model.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGLApp.dir/build.make CMakeFiles/OpenGLApp.dir/src/Model.cpp.s
+.PHONY : src/Model.cpp.s
+
+src/Texture.o: src/Texture.cpp.o
+.PHONY : src/Texture.o
+
+# target to build an object file
+src/Texture.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGLApp.dir/build.make CMakeFiles/OpenGLApp.dir/src/Texture.cpp.o
+.PHONY : src/Texture.cpp.o
+
+src/Texture.i: src/Texture.cpp.i
+.PHONY : src/Texture.i
+
+# target to preprocess a source file
+src/Texture.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGLApp.dir/build.make CMakeFiles/OpenGLApp.dir/src/Texture.cpp.i
+.PHONY : src/Texture.cpp.i
+
+src/Texture.s: src/Texture.cpp.s
+.PHONY : src/Texture.s
+
+# target to generate assembly for a file
+src/Texture.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGLApp.dir/build.make CMakeFiles/OpenGLApp.dir/src/Texture.cpp.s
+.PHONY : src/Texture.cpp.s
+
 src/loadPipe.o: src/loadPipe.cpp.o
 .PHONY : src/loadPipe.o
 
@@ -189,6 +261,15 @@ help:
 	@echo "... src/Main.o"
 	@echo "... src/Main.i"
 	@echo "... src/Main.s"
+	@echo "... src/Mesh.o"
+	@echo "... src/Mesh.i"
+	@echo "... src/Mesh.s"
+	@echo "... src/Model.o"
+	@echo "... src/Model.i"
+	@echo "... src/Model.s"
+	@echo "... src/Texture.o"
+	@echo "... src/Texture.i"
+	@echo "... src/Texture.s"
 	@echo "... src/loadPipe.o"
 	@echo "... src/loadPipe.i"
 	@echo "... src/loadPipe.s"

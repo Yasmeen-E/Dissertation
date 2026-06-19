@@ -1,6 +1,7 @@
 #version 330 core
 layout(location = 0) in vec3 iPosition;
-
+layout(location = 1) in vec2 iTexture;
+layout(location = 2) in vec3 iNormal;
 
 
 layout(std140) uniform UScene {
@@ -10,6 +11,13 @@ layout(std140) uniform UScene {
     vec4 camPos;
 } uScene;
 
+uniform mat4 Model;
+
+out vec2 UV;
+out vec3 vNormal;
+
 void main(){
-	gl_Position =  uScene.projView * vec4(iPosition,1);
+	gl_Position =  uScene.projView * Model *vec4(iPosition,1);
+   	UV = iTexture;
+    vNormal = mat3(transpose(inverse(Model))) *iNormal;
 }

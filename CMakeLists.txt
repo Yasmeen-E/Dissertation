@@ -7,12 +7,8 @@ find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
 find_package(GLEW REQUIRED)
 
-# explicitly list only what you want compiled
-set(SOURCES
-    src/Main.cpp
-    src/loadPipe.cpp 
-  
-)
+
+file(GLOB_RECURSE SOURCES "src/*.cpp")
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 

@@ -86,10 +86,52 @@ CMakeFiles/OpenGLApp.dir/src/Main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/OpenGLApp.dir/src/Main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/yasmeeneltayeb/Desktop/Diss/src/Main.cpp -o CMakeFiles/OpenGLApp.dir/src/Main.cpp.s
 
+CMakeFiles/OpenGLApp.dir/src/Mesh.cpp.o: CMakeFiles/OpenGLApp.dir/flags.make
+CMakeFiles/OpenGLApp.dir/src/Mesh.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/src/Mesh.cpp
+CMakeFiles/OpenGLApp.dir/src/Mesh.cpp.o: CMakeFiles/OpenGLApp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/yasmeeneltayeb/Desktop/Diss/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/OpenGLApp.dir/src/Mesh.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OpenGLApp.dir/src/Mesh.cpp.o -MF CMakeFiles/OpenGLApp.dir/src/Mesh.cpp.o.d -o CMakeFiles/OpenGLApp.dir/src/Mesh.cpp.o -c /Users/yasmeeneltayeb/Desktop/Diss/src/Mesh.cpp
+
+CMakeFiles/OpenGLApp.dir/src/Mesh.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/OpenGLApp.dir/src/Mesh.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/yasmeeneltayeb/Desktop/Diss/src/Mesh.cpp > CMakeFiles/OpenGLApp.dir/src/Mesh.cpp.i
+
+CMakeFiles/OpenGLApp.dir/src/Mesh.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/OpenGLApp.dir/src/Mesh.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/yasmeeneltayeb/Desktop/Diss/src/Mesh.cpp -o CMakeFiles/OpenGLApp.dir/src/Mesh.cpp.s
+
+CMakeFiles/OpenGLApp.dir/src/Model.cpp.o: CMakeFiles/OpenGLApp.dir/flags.make
+CMakeFiles/OpenGLApp.dir/src/Model.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/src/Model.cpp
+CMakeFiles/OpenGLApp.dir/src/Model.cpp.o: CMakeFiles/OpenGLApp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/yasmeeneltayeb/Desktop/Diss/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/OpenGLApp.dir/src/Model.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OpenGLApp.dir/src/Model.cpp.o -MF CMakeFiles/OpenGLApp.dir/src/Model.cpp.o.d -o CMakeFiles/OpenGLApp.dir/src/Model.cpp.o -c /Users/yasmeeneltayeb/Desktop/Diss/src/Model.cpp
+
+CMakeFiles/OpenGLApp.dir/src/Model.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/OpenGLApp.dir/src/Model.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/yasmeeneltayeb/Desktop/Diss/src/Model.cpp > CMakeFiles/OpenGLApp.dir/src/Model.cpp.i
+
+CMakeFiles/OpenGLApp.dir/src/Model.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/OpenGLApp.dir/src/Model.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/yasmeeneltayeb/Desktop/Diss/src/Model.cpp -o CMakeFiles/OpenGLApp.dir/src/Model.cpp.s
+
+CMakeFiles/OpenGLApp.dir/src/Texture.cpp.o: CMakeFiles/OpenGLApp.dir/flags.make
+CMakeFiles/OpenGLApp.dir/src/Texture.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/src/Texture.cpp
+CMakeFiles/OpenGLApp.dir/src/Texture.cpp.o: CMakeFiles/OpenGLApp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/yasmeeneltayeb/Desktop/Diss/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/OpenGLApp.dir/src/Texture.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OpenGLApp.dir/src/Texture.cpp.o -MF CMakeFiles/OpenGLApp.dir/src/Texture.cpp.o.d -o CMakeFiles/OpenGLApp.dir/src/Texture.cpp.o -c /Users/yasmeeneltayeb/Desktop/Diss/src/Texture.cpp
+
+CMakeFiles/OpenGLApp.dir/src/Texture.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/OpenGLApp.dir/src/Texture.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/yasmeeneltayeb/Desktop/Diss/src/Texture.cpp > CMakeFiles/OpenGLApp.dir/src/Texture.cpp.i
+
+CMakeFiles/OpenGLApp.dir/src/Texture.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/OpenGLApp.dir/src/Texture.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/yasmeeneltayeb/Desktop/Diss/src/Texture.cpp -o CMakeFiles/OpenGLApp.dir/src/Texture.cpp.s
+
 CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o: CMakeFiles/OpenGLApp.dir/flags.make
 CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/src/loadPipe.cpp
 CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o: CMakeFiles/OpenGLApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/yasmeeneltayeb/Desktop/Diss/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/yasmeeneltayeb/Desktop/Diss/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o -MF CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o.d -o CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o -c /Users/yasmeeneltayeb/Desktop/Diss/src/loadPipe.cpp
 
 CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.i: cmake_force
@@ -103,19 +145,25 @@ CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.s: cmake_force
 # Object files for target OpenGLApp
 OpenGLApp_OBJECTS = \
 "CMakeFiles/OpenGLApp.dir/src/Main.cpp.o" \
+"CMakeFiles/OpenGLApp.dir/src/Mesh.cpp.o" \
+"CMakeFiles/OpenGLApp.dir/src/Model.cpp.o" \
+"CMakeFiles/OpenGLApp.dir/src/Texture.cpp.o" \
 "CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o"
 
 # External object files for target OpenGLApp
 OpenGLApp_EXTERNAL_OBJECTS =
 
 OpenGLApp: CMakeFiles/OpenGLApp.dir/src/Main.cpp.o
+OpenGLApp: CMakeFiles/OpenGLApp.dir/src/Mesh.cpp.o
+OpenGLApp: CMakeFiles/OpenGLApp.dir/src/Model.cpp.o
+OpenGLApp: CMakeFiles/OpenGLApp.dir/src/Texture.cpp.o
 OpenGLApp: CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o
 OpenGLApp: CMakeFiles/OpenGLApp.dir/build.make
 OpenGLApp: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/OpenGL.framework
 OpenGLApp: /opt/homebrew/lib/libglfw.3.4.dylib
 OpenGLApp: /opt/homebrew/lib/libGLEW.2.3.1.dylib
 OpenGLApp: CMakeFiles/OpenGLApp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/yasmeeneltayeb/Desktop/Diss/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable OpenGLApp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/yasmeeneltayeb/Desktop/Diss/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable OpenGLApp"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/OpenGLApp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

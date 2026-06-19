@@ -1,8 +1,9 @@
 #pragma once
 // Include standard headers
 #include <stdio.h>
+#include<iostream>
 #include <stdlib.h>
-
+#include <memory>
 // Include GLEW
 #include  <GL/glew.h> 
 
@@ -23,6 +24,8 @@ using namespace glm;
 #include "FlythroughCamera.hpp"
 #include "InputManager.hpp"
 
+#include "Scene.hpp"
+
 #define WIDTH 1920
 #define HEIGHT 1080
 
@@ -41,6 +44,8 @@ void updateUscene(SceneUBO &sceneUniform, Camera *camera);
 
 int main( void )
 {
+
+
 	// Initialize GLFW
 	if( !glfwInit() )
 	{
@@ -77,7 +82,9 @@ int main( void )
 	glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
 
 	//background
-	glClearColor(0.8f, 0.8f, 0.8f, 0.0f);
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LESS);
+	glClearColor(0.5f, 0.5f, 0.5f, 0.5f);
 
 	GLuint VertexArrayID;
 	glGenVertexArrays(1, &VertexArrayID);
@@ -106,24 +113,22 @@ int main( void )
 
 
 
-	//initialise 
-	
-	static const GLfloat g_vertex_buffer_data[] = { 
-		-1.0f, -1.0f, 0.0f,
-		 1.0f, -1.0f, 0.0f,
-		 0.0f,  1.0f, 0.0f,
-	};
+    //initialise 
+	Scene scene;
+	printf("loading model...\n");
+	auto lamp = std::make_shared<Model>("OBJs/Haus.obj", "OBJs/Haus.jpg");
+	printf("model loaded\n"); 
+	///glm::mat4 sl = glm::mat4(1.0f);
+	//lamp->transform = glm::scale(sl, glm::vec3(5.f, 5.f, 5.f));
+	scene.addModel(lamp);
 
-	GLuint vertexbuffer;
-	glGenBuffers(1, &vertexbuffer);
-	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
+	printf("added lamp...\n");
 
 	float lastFrame = 0.0f;
 
 	do{
 		
-		glClear( GL_COLOR_BUFFER_BIT );
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		// Use our shader
 		glUseProgram(programID);
@@ -142,23 +147,8 @@ int main( void )
 		glBindBuffer(GL_UNIFORM_BUFFER, sceneubo);
 		glBufferSubData(GL_UNIFORM_BUFFER, 0, sizeof(SceneUBO), &SceneUniform);
 
-
-		// 1rst attribute buffer : vertices
-		glEnableVertexAttribArray(0);
-		glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-		glVertexAttribPointer(
-			0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
-			3,                  // size
-			GL_FLOAT,           // type
-			GL_FALSE,           // normalized?
-			0,                  // stride
-			(void*)0            // array buffer offset
-		);
-
-		glDrawArrays(GL_TRIANGLES, 0, 3); // 3 indices starting at 0 -> 1 triangle
-
-		glDisableVertexAttribArray(0);
-
+		//draw scene
+		scene.draw(programID);
 		
 		// Swap buffers
 		glfwSwapBuffers(window);
@@ -169,12 +159,8 @@ int main( void )
 		   glfwWindowShouldClose(window) == 0 );
 
 
-	// Cleanup VBO
-	glDeleteBuffers(1, &vertexbuffer);
-	glDeleteVertexArrays(1, &VertexArrayID);
+	//clean	
 	glDeleteProgram(programID);
-
-
 	glfwTerminate();
 
 	return 0;
