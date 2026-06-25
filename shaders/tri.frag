@@ -45,9 +45,15 @@ void main(){
     float shadow = shadowOnFragment(FragPosProjectedLightSpace);
     vec3 ambient = texture( TextureSampler, UV ).rgb;
 
+    vec3 N = normalize(vNormal);
+    //A = E * ( N . Up )
+    float E = 1.f- shadow;
+    float A   = E * max(dot(N, vec3(0.0, 1.0, 0.0)), 0.0);
 
 
-    color = ambient * (1.f - shadow);
+    //color = ambient +  (1.f - shadow);
+    vec3 snowColour = vec3(1.0, 1.0, 1.0); 
+    color = mix(ambient, snowColour, A);
 
 
   //	color = texture( TextureSampler, UV ).rgb;
