@@ -32,7 +32,7 @@ void Model::load(const char *filename, const char *fileTexturename) {
     std::vector<Vertex> vertices;
 		for (const auto& index : shape.mesh.indices)
 		{
-			Vertex vert{};
+			Vertex vert;
 
       vert.position =
 			{
@@ -86,10 +86,20 @@ void Model::draw(GLuint shader) const
 
   for (auto& dc : drawCalls) {
       if (dc.diffuse) {
-          dc.diffuse->bind(0);
-          glUniform1i(glGetUniformLocation(shader, "TextureSampler"), 0);
+          dc.diffuse->bind(1);
+          glUniform1i(glGetUniformLocation(shader, "TextureSampler"), 1);
       }
       dc.mesh->draw();
   }
 
+}
+
+void Model::drawOcclude(GLuint shader) const
+{
+   GLint modelLoc = glGetUniformLocation(shader, "Model");
+   glUniformMatrix4fv(modelLoc, 1, GL_FALSE, &transform[0][0]);
+   
+  for (auto& dc : drawCalls) {
+      dc.mesh->draw();
+  }
 }

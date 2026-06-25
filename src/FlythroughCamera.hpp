@@ -14,7 +14,7 @@ public:
     void update(float deltaTime) {
 
         //shift increases speed 
-        float boost    = glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS ? 3.0f : 1.0f;
+        float boost    = glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS ? 10.0f : 1.0f;
         float velocity = speed * deltaTime * boost;
 
         if (keys[0]) position += front * velocity;  // up arrow    - forward

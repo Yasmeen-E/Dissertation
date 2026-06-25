@@ -14,6 +14,7 @@ GLFWwindow* window;
 // Include GLM
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 using namespace glm;
 
 #include "loadPipe.h"
@@ -23,11 +24,15 @@ using namespace glm;
 #include "ArcballCamera.hpp"
 #include "FlythroughCamera.hpp"
 #include "InputManager.hpp"
-
+#include "OcclusionMap.hpp"
 #include "Scene.hpp"
 
 #define WIDTH 1920
 #define HEIGHT 1080
+
+
+#define OC_MAP_WIDTH 2048
+#define OC_MAP_HEIGHT 2048
 
 using namespace glm;
 
@@ -42,10 +47,14 @@ struct SceneUBO {
 
 void updateUscene(SceneUBO &sceneUniform, Camera *camera);
 
+
+void SizeCallback(GLFWwindow* window, int w, int h)
+{
+	glViewport(0, 0, w, h);
+}
+
 int main( void )
 {
-
-
 	// Initialize GLFW
 	if( !glfwInit() )
 	{
@@ -69,6 +78,7 @@ int main( void )
 		return -1;
 	}
 	glfwMakeContextCurrent(window);
+	glfwSetWindowSizeCallback(window, SizeCallback);
 
 	// Initialize GLEW
 	if (glewInit() != GLEW_OK) {
@@ -92,6 +102,10 @@ int main( void )
 
 	// Create and compile our GLSL program from the shaders
 	GLuint programID = LoadShaders( "tri.vert", "tri.frag" );
+	GLuint occludeID = LoadShaders( "shadow.vert", "shadow.frag" );
+
+
+	ShadowStruct occlude = setup_shadowmap(OC_MAP_WIDTH, OC_MAP_HEIGHT);
 	
 	//set up camera
 	FlythroughCamera flythrough(WIDTH, HEIGHT);
@@ -113,25 +127,23 @@ int main( void )
 
 
 
+
     //initialise 
 	Scene scene;
-	printf("loading model...\n");
 	auto lamp = std::make_shared<Model>("OBJs/Haus.obj", "OBJs/Haus.jpg");
 	printf("model loaded\n"); 
-	///glm::mat4 sl = glm::mat4(1.0f);
-	//lamp->transform = glm::scale(sl, glm::vec3(5.f, 5.f, 5.f));
+	glm::mat4 sl = glm::mat4(1.0f);
+	lamp->transform = glm::scale(sl, glm::vec3(0.25f, 0.25f, 0.25f));
 	scene.addModel(lamp);
 
-	printf("added lamp...\n");
 
 	float lastFrame = 0.0f;
 
 	do{
-		
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		// Use our shader
-		glUseProgram(programID);
+
+		 int fbWidth, fbHeight;
+    	glfwGetFramebufferSize(window, &fbWidth, &fbHeight);
 
 		float currentFrame = glfwGetTime();
 		float deltaTime    = currentFrame - lastFrame;
@@ -140,12 +152,38 @@ int main( void )
 		flythrough.update(deltaTime);
 		arcball.update(deltaTime);
 
+		//preprocessing (for now) (shadow mapping)
+		glViewport(0, 0, OC_MAP_WIDTH, OC_MAP_HEIGHT);
+		glBindFramebuffer(GL_FRAMEBUFFER, occlude.FBO);
+		glClear(GL_DEPTH_BUFFER_BIT);
+		glUseProgram(occludeID);
+		glUniformMatrix4fv(glGetUniformLocation(occludeID, "projectedLightSpaceMatrix"), 1, GL_FALSE, glm::value_ptr(getOrtho()));
+
+		scene.drawOcclude(occludeID);
+		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+		//draw reset of scene
+		glViewport(0, 0, fbWidth, fbHeight);
+		static const GLfloat bgd[] = { .8f, .8f, .8f, 1.f };
+		glClearBufferfv(GL_COLOR, 0, bgd);
+		glClear(GL_DEPTH_BUFFER_BIT);
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+		glUseProgram(programID);
+
+		//bind shadow/occlusion map
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, occlude.Texture);
+		glUniformMatrix4fv(glGetUniformLocation(programID, "projectedLightSpaceMatrix"), 1, GL_FALSE, glm::value_ptr(getOrtho()));
+		glUniform3f(glGetUniformLocation(programID, "snowDirection"),0.f , -1.f, 0.f);
+		glUniform1i(glGetUniformLocation(programID, "shadowMap"), 0);
+	
 		//scene uniform 
 		SceneUBO SceneUniform;
 		updateUscene(SceneUniform,input.getActiveCamera());
 
 		glBindBuffer(GL_UNIFORM_BUFFER, sceneubo);
 		glBufferSubData(GL_UNIFORM_BUFFER, 0, sizeof(SceneUBO), &SceneUniform);
+
 
 		//draw scene
 		scene.draw(programID);
@@ -161,6 +199,7 @@ int main( void )
 
 	//clean	
 	glDeleteProgram(programID);
+	glDeleteProgram(occludeID);
 	glfwTerminate();
 
 	return 0;

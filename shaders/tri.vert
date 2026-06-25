@@ -11,13 +11,16 @@ layout(std140) uniform UScene {
     vec4 camPos;
 } uScene;
 
+uniform mat4 projectedLightSpaceMatrix;
 uniform mat4 Model;
 
 out vec2 UV;
 out vec3 vNormal;
+out vec4 FragPosProjectedLightSpace;
 
 void main(){
 	gl_Position =  uScene.projView * Model *vec4(iPosition,1);
    	UV = iTexture;
     vNormal = mat3(transpose(inverse(Model))) *iNormal;
+    FragPosProjectedLightSpace = projectedLightSpaceMatrix * Model * vec4(iPosition,1);
 }

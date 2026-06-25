@@ -18,8 +18,10 @@ public:
     Model(const char *fileOBJname, const char *fileTexname);
 
     void draw(GLuint shader) const;
+    void drawOcclude(GLuint shader) const;
 
     glm::mat4 transform = glm::mat4(1.0f);
+
 
 private:
     std::vector<DrawCall> drawCalls;

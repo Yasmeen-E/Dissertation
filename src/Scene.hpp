@@ -14,5 +14,10 @@ public:
             model->draw(shader);
     }
 
+    void drawOcclude(GLuint shader) const {
+        for (auto& model : models)
+            model->drawOcclude(shader);
+    }
+
     std::vector<std::shared_ptr<Model>> models;
 };

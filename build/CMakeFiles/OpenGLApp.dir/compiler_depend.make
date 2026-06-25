@@ -811,6 +811,7 @@ CMakeFiles/OpenGLApp.dir/src/Main.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/src/
   /Users/yasmeeneltayeb/Desktop/Diss/src/InputManager.hpp \
   /Users/yasmeeneltayeb/Desktop/Diss/src/Mesh.hpp \
   /Users/yasmeeneltayeb/Desktop/Diss/src/Model.hpp \
+  /Users/yasmeeneltayeb/Desktop/Diss/src/OcclusionMap.hpp \
   /Users/yasmeeneltayeb/Desktop/Diss/src/Scene.hpp \
   /Users/yasmeeneltayeb/Desktop/Diss/src/Texture.hpp \
   /Users/yasmeeneltayeb/Desktop/Diss/src/loadPipe.h \
@@ -995,6 +996,92 @@ CMakeFiles/OpenGLApp.dir/src/Main.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/src/
   /opt/homebrew/include/glm/ext/matrix_transform.hpp \
   /opt/homebrew/include/glm/ext/matrix_transform.inl \
   /opt/homebrew/include/glm/geometric.hpp \
+  /opt/homebrew/include/glm/common.hpp \
+  /opt/homebrew/include/glm/detail/qualifier.hpp \
+  /opt/homebrew/include/glm/detail/setup.hpp \
+  /opt/homebrew/include/glm/detail/type_mat3x3.hpp \
+  /opt/homebrew/include/glm/detail/type_mat4x4.hpp \
+  /opt/homebrew/include/glm/detail/type_vec3.hpp \
+  /opt/homebrew/include/glm/detail/type_vec4.hpp \
+  /opt/homebrew/include/glm/exponential.hpp \
+  /opt/homebrew/include/glm/common.hpp \
+  /opt/homebrew/include/glm/detail/type_mat3x3.hpp \
+  /opt/homebrew/include/glm/detail/type_mat4x4.hpp \
+  /opt/homebrew/include/glm/detail/type_vec3.hpp \
+  /opt/homebrew/include/glm/detail/type_vec4.hpp \
+  /opt/homebrew/include/glm/exponential.hpp \
+  /opt/homebrew/include/glm/vector_relational.hpp \
+  /opt/homebrew/include/glm/ext/quaternion_common.hpp \
+  /opt/homebrew/include/glm/ext/quaternion_geometric.hpp \
+  /opt/homebrew/include/glm/ext/quaternion_relational.hpp \
+  /opt/homebrew/include/glm/ext/quaternion_relational.inl \
+  /opt/homebrew/include/glm/ext/vector_relational.hpp \
+  /opt/homebrew/include/glm/gtc/constants.hpp \
+  /opt/homebrew/include/glm/gtc/matrix_transform.hpp \
+  /opt/homebrew/include/glm/trigonometric.hpp \
+  /opt/homebrew/include/glm/detail/qualifier.hpp \
+  /opt/homebrew/include/glm/detail/setup.hpp \
+  /opt/homebrew/include/glm/detail/type_float.hpp \
+  /opt/homebrew/include/glm/detail/type_quat.hpp \
+  /opt/homebrew/include/glm/detail/type_quat.inl \
+  /opt/homebrew/include/glm/detail/type_vec1.hpp \
+  /opt/homebrew/include/glm/exponential.hpp \
+  /opt/homebrew/include/glm/exponential.hpp \
+  /opt/homebrew/include/glm/ext/vector_relational.hpp \
+  /opt/homebrew/include/glm/geometric.hpp \
+  /opt/homebrew/include/glm/ext/quaternion_geometric.hpp \
+  /opt/homebrew/include/glm/ext/quaternion_geometric.inl \
+  /opt/homebrew/include/glm/ext/scalar_constants.hpp \
+  /opt/homebrew/include/glm/ext/scalar_int_sized.hpp \
+  /opt/homebrew/include/glm/ext/scalar_uint_sized.hpp \
+  /opt/homebrew/include/glm/ext/vector_int1.hpp \
+  /opt/homebrew/include/glm/ext/vector_uint1.hpp \
+  /opt/homebrew/include/glm/geometric.hpp \
+  /opt/homebrew/include/glm/trigonometric.hpp \
+  /opt/homebrew/include/glm/vector_relational.hpp \
+  /opt/homebrew/include/glm/ext/quaternion_common.hpp \
+  /opt/homebrew/include/glm/ext/quaternion_common.inl \
+  /opt/homebrew/include/glm/ext/quaternion_double.hpp \
+  /opt/homebrew/include/glm/ext/quaternion_double_precision.hpp \
+  /opt/homebrew/include/glm/ext/quaternion_float.hpp \
+  /opt/homebrew/include/glm/ext/quaternion_float_precision.hpp \
+  /opt/homebrew/include/glm/ext/quaternion_geometric.hpp \
+  /opt/homebrew/include/glm/ext/quaternion_relational.hpp \
+  /opt/homebrew/include/glm/ext/quaternion_transform.hpp \
+  /opt/homebrew/include/glm/ext/quaternion_transform.inl \
+  /opt/homebrew/include/glm/ext/quaternion_trigonometric.hpp \
+  /opt/homebrew/include/glm/ext/quaternion_trigonometric.inl \
+  /opt/homebrew/include/glm/ext/scalar_constants.hpp \
+  /opt/homebrew/include/glm/ext/vector_bool1.hpp \
+  /opt/homebrew/include/glm/ext/vector_bool1_precision.hpp \
+  /opt/homebrew/include/glm/ext/vector_double1.hpp \
+  /opt/homebrew/include/glm/ext/vector_double1_precision.hpp \
+  /opt/homebrew/include/glm/ext/vector_float1.hpp \
+  /opt/homebrew/include/glm/ext/vector_float1_precision.hpp \
+  /opt/homebrew/include/glm/ext/vector_int1.hpp \
+  /opt/homebrew/include/glm/ext/vector_int1_sized.hpp \
+  /opt/homebrew/include/glm/ext/vector_relational.hpp \
+  /opt/homebrew/include/glm/ext/vector_relational.inl \
+  /opt/homebrew/include/glm/ext/vector_uint1.hpp \
+  /opt/homebrew/include/glm/ext/vector_uint1_sized.hpp \
+  /opt/homebrew/include/glm/geometric.hpp \
+  /opt/homebrew/include/glm/gtc/constants.hpp \
+  /opt/homebrew/include/glm/gtc/matrix_transform.hpp \
+  /opt/homebrew/include/glm/trigonometric.hpp \
+  /opt/homebrew/include/glm/vector_relational.hpp \
+  /opt/homebrew/include/glm/gtc/epsilon.hpp \
+  /opt/homebrew/include/glm/gtc/epsilon.inl \
+  /opt/homebrew/include/glm/gtc/quaternion.hpp \
+  /opt/homebrew/include/glm/gtc/quaternion.inl \
+  /opt/homebrew/include/glm/gtc/vec1.hpp \
+  /opt/homebrew/include/glm/mat2x2.hpp \
+  /opt/homebrew/include/glm/mat2x3.hpp \
+  /opt/homebrew/include/glm/mat2x4.hpp \
+  /opt/homebrew/include/glm/mat3x2.hpp \
+  /opt/homebrew/include/glm/mat3x3.hpp \
+  /opt/homebrew/include/glm/mat3x4.hpp \
+  /opt/homebrew/include/glm/mat4x2.hpp \
+  /opt/homebrew/include/glm/mat4x3.hpp \
   /opt/homebrew/include/glm/mat4x4.hpp \
   /opt/homebrew/include/glm/matrix.hpp \
   /opt/homebrew/include/glm/trigonometric.hpp \
@@ -1003,6 +1090,8 @@ CMakeFiles/OpenGLApp.dir/src/Main.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/src/
   /opt/homebrew/include/glm/vec4.hpp \
   /opt/homebrew/include/glm/gtc/matrix_transform.hpp \
   /opt/homebrew/include/glm/gtc/matrix_transform.inl \
+  /opt/homebrew/include/glm/gtc/type_ptr.hpp \
+  /opt/homebrew/include/glm/gtc/type_ptr.inl \
   /opt/homebrew/include/glm/integer.hpp \
   /opt/homebrew/include/glm/mat2x2.hpp \
   /opt/homebrew/include/glm/mat2x3.hpp \
@@ -4636,7 +4725,49 @@ CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/
 
 /opt/homebrew/include/glm/integer.hpp:
 
+/opt/homebrew/include/glm/gtc/type_ptr.hpp:
+
 /opt/homebrew/include/glm/gtc/matrix_transform.inl:
+
+/opt/homebrew/include/glm/gtc/vec1.hpp:
+
+/opt/homebrew/include/glm/gtc/quaternion.hpp:
+
+/opt/homebrew/include/glm/gtc/epsilon.inl:
+
+/opt/homebrew/include/glm/gtc/epsilon.hpp:
+
+/opt/homebrew/include/glm/ext/vector_uint1_sized.hpp:
+
+/opt/homebrew/include/glm/ext/vector_int1_sized.hpp:
+
+/opt/homebrew/include/glm/ext/vector_float1_precision.hpp:
+
+/opt/homebrew/include/glm/ext/vector_double1.hpp:
+
+/opt/homebrew/include/glm/ext/vector_bool1.hpp:
+
+/opt/homebrew/include/glm/ext/quaternion_trigonometric.inl:
+
+/opt/homebrew/include/glm/ext/quaternion_trigonometric.hpp:
+
+/opt/homebrew/include/glm/ext/quaternion_float_precision.hpp:
+
+/opt/homebrew/include/glm/ext/quaternion_double_precision.hpp:
+
+/opt/homebrew/include/glm/ext/vector_uint1.hpp:
+
+/opt/homebrew/include/glm/ext/quaternion_geometric.inl:
+
+/opt/homebrew/include/glm/detail/type_quat.hpp:
+
+/opt/homebrew/include/glm/detail/type_float.hpp:
+
+/opt/homebrew/include/glm/ext/vector_relational.hpp:
+
+/opt/homebrew/include/glm/ext/quaternion_geometric.hpp:
+
+/opt/homebrew/include/glm/ext/quaternion_common.hpp:
 
 /opt/homebrew/include/glm/ext/matrix_transform.inl:
 
@@ -4688,6 +4819,8 @@ CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/
 
 /opt/homebrew/include/glm/ext/matrix_double2x2_precision.hpp:
 
+/opt/homebrew/include/glm/ext/quaternion_float.hpp:
+
 /opt/homebrew/include/glm/ext/matrix_double2x2.hpp:
 
 /opt/homebrew/include/glm/ext/vector_uint4.hpp:
@@ -4709,6 +4842,8 @@ CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/
 /opt/homebrew/include/glm/vec2.hpp:
 
 /opt/homebrew/include/glm/mat3x4.hpp:
+
+/opt/homebrew/include/glm/ext/quaternion_transform.hpp:
 
 /opt/homebrew/include/glm/detail/func_matrix.inl:
 
@@ -4737,6 +4872,8 @@ CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/
 /opt/homebrew/include/glm/detail/qualifier.hpp:
 
 /opt/homebrew/include/glm/ext/matrix_float4x4_precision.hpp:
+
+/opt/homebrew/include/glm/ext/vector_int1.hpp:
 
 /opt/homebrew/include/glm/ext/matrix_float4x3_precision.hpp:
 
@@ -4824,6 +4961,8 @@ CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/
 
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/__stddef_size_t.h:
 
+/Users/yasmeeneltayeb/Desktop/Diss/src/OcclusionMap.hpp:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/detected_or.h:
 
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/__stddef_offsetof.h:
@@ -4903,6 +5042,8 @@ CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_ctermid.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_off_t.h:
+
+/opt/homebrew/include/glm/ext/vector_double1_precision.hpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_nlink_t.h:
 
@@ -5168,6 +5309,8 @@ CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_dev_t.h:
 
+/opt/homebrew/include/glm/ext/quaternion_relational.inl:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/no_destroy.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/xlocale/___wctype.h:
@@ -5197,6 +5340,8 @@ CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/declval.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/errno.h:
+
+/opt/homebrew/include/glm/ext/vector_relational.inl:
 
 /opt/homebrew/include/glm/vec4.hpp:
 
@@ -5449,6 +5594,8 @@ CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__memory/raw_storage_iterator.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/conjunction.h:
+
+/opt/homebrew/include/glm/ext/vector_float1.hpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/has_virtual_destructor.h:
 
@@ -5732,6 +5879,8 @@ CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/erase_if_container.h:
 
+/opt/homebrew/include/glm/ext/quaternion_relational.hpp:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/distance.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/move_sentinel.h:
@@ -5802,6 +5951,8 @@ CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/memory.h:
 
+/opt/homebrew/include/glm/ext/quaternion_double.hpp:
+
 /Users/yasmeeneltayeb/Desktop/Diss/src/loadPipe.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/ios.h:
@@ -5863,6 +6014,8 @@ CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/
 /opt/homebrew/include/glm/ext/vector_bool2_precision.hpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/pair.h:
+
+/opt/homebrew/include/glm/gtc/type_ptr.inl:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__atomic/atomic_init.h:
 
@@ -6096,6 +6249,8 @@ CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__math/gamma.h:
 
+/opt/homebrew/include/glm/ext/vector_bool1_precision.hpp:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__atomic/atomic_lock_free.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__mutex/mutex.h:
@@ -6246,6 +6401,8 @@ CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/disjunction.h:
 
+/opt/homebrew/include/glm/detail/type_quat.inl:
+
 /opt/homebrew/include/glm/ext/matrix_clip_space.hpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/pstl.h:
@@ -6269,6 +6426,8 @@ CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__compare/three_way_comparable.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/is_partitioned.h:
+
+/opt/homebrew/include/glm/ext/quaternion_common.inl:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/mem_fun_ref.h:
 
@@ -6424,6 +6583,8 @@ CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_mode_t.h:
 
+/opt/homebrew/include/glm/gtc/quaternion.inl:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_mb_cur_max.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/common_reference.h:
@@ -6467,6 +6628,8 @@ CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_wctype.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__concepts/derived_from.h:
+
+/opt/homebrew/include/glm/ext/quaternion_transform.inl:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/partition_copy.h:
 
