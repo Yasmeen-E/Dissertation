@@ -1105,4 +1105,6 @@ CMakeFiles/OpenGLApp.dir/src/Main.cpp.o: \
   /Users/yasmeeneltayeb/Desktop/Diss/src/Scene.hpp \
   /Users/yasmeeneltayeb/Desktop/Diss/src/Model.hpp \
   /Users/yasmeeneltayeb/Desktop/Diss/src/Mesh.hpp \
-  /Users/yasmeeneltayeb/Desktop/Diss/src/Texture.hpp
+  /Users/yasmeeneltayeb/Desktop/Diss/src/Texture.hpp \
+  /Users/yasmeeneltayeb/Desktop/Diss/src/Texture3D.hpp \
+  /Users/yasmeeneltayeb/Desktop/Diss/external/stb_perlin.h
