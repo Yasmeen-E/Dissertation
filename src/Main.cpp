@@ -195,8 +195,12 @@ int main( void )
 		flythrough.update(deltaTime);
 		arcball.update(deltaTime);
 
-		glm::vec3 snowDirection = glm::normalize(glm::vec3(sin(setting.windAngle), -1.0f, cos(setting.windAngle)));
+		glm::vec3 snowDirection = glm::vec3 (0.f , -1.f, 0.f);
 
+		if (setting.wind){
+			float angleRad = glm::radians(setting.windAngle);
+			snowDirection = glm::normalize(glm::vec3(sin(angleRad), -1.0f, cos(angleRad)));
+		}
 		//preprocessing (for now) (shadow mapping)
 		glViewport(0, 0, OC_MAP_WIDTH, OC_MAP_HEIGHT);
 		glBindFramebuffer(GL_FRAMEBUFFER, occlude.FBO);

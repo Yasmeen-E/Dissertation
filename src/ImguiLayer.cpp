@@ -48,6 +48,11 @@ void ImGuiLayer::DrawUI(Settings& settings) {
     ImGui::Begin("Controls");
     ImGui::Checkbox("Snow", &settings.snow);
     ImGui::SliderFloat("Time", &settings.time, 0.0f, 1.0f);
+    ImGui::Checkbox("Wind", &settings.wind);
+    if (settings.wind) {
+    ImGui::Indent();
     ImGui::SliderFloat("Wind Angle", &settings.windAngle, 0.0f, 360.0f);
-     ImGui::End(); 
+    ImGui::Unindent();
+    }
+    ImGui::End(); 
 }
