@@ -1,4 +1,5 @@
 #pragma once
+#include "imguiSetting.hpp"
 
 struct GLFWwindow;
 
@@ -13,7 +14,7 @@ public:
     void BeginFrame();
     void EndFrame();
 
-    void DrawUI();
+    void DrawUI(Settings &settings);
 
 private:
     bool m_initialized = false;

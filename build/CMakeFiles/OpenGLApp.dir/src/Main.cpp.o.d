@@ -1098,10 +1098,14 @@ CMakeFiles/OpenGLApp.dir/src/Main.cpp.o: \
   /opt/homebrew/include/glm/gtc/type_ptr.inl \
   /Users/yasmeeneltayeb/Desktop/Diss/src/loadPipe.h \
   /Users/yasmeeneltayeb/Desktop/Diss/src/ImguiLayer.h \
+  /Users/yasmeeneltayeb/Desktop/Diss/src/imguiSetting.hpp \
   /Users/yasmeeneltayeb/Desktop/Diss/src/ArcballCamera.hpp \
   /Users/yasmeeneltayeb/Desktop/Diss/src/Camera.hpp \
   /Users/yasmeeneltayeb/Desktop/Diss/src/FlythroughCamera.hpp \
   /Users/yasmeeneltayeb/Desktop/Diss/src/InputManager.hpp \
+  /Users/yasmeeneltayeb/Desktop/Diss/external/imgui/imgui.h \
+  /Users/yasmeeneltayeb/Desktop/Diss/external/imgui/imconfig.h \
+  /Users/yasmeeneltayeb/Desktop/Diss/external/imgui/backends/imgui_impl_glfw.h \
   /Users/yasmeeneltayeb/Desktop/Diss/src/OcclusionMap.hpp \
   /Users/yasmeeneltayeb/Desktop/Diss/src/Scene.hpp \
   /Users/yasmeeneltayeb/Desktop/Diss/src/Model.hpp \

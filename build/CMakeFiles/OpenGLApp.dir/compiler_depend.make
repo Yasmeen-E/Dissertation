@@ -2372,6 +2372,7 @@ CMakeFiles/OpenGLApp.dir/src/ImguiLayer.cpp.o: /Users/yasmeeneltayeb/Desktop/Dis
   /Users/yasmeeneltayeb/Desktop/Diss/external/imgui/imconfig.h \
   /Users/yasmeeneltayeb/Desktop/Diss/external/imgui/imgui.h \
   /Users/yasmeeneltayeb/Desktop/Diss/src/ImguiLayer.h \
+  /Users/yasmeeneltayeb/Desktop/Diss/src/imguiSetting.hpp \
   /opt/homebrew/include/GLFW/glfw3.h
 
 CMakeFiles/OpenGLApp.dir/src/Main.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/src/Main.cpp \
@@ -3178,6 +3179,9 @@ CMakeFiles/OpenGLApp.dir/src/Main.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/src/
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stdarg.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stddef.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/stdint.h \
+  /Users/yasmeeneltayeb/Desktop/Diss/external/imgui/backends/imgui_impl_glfw.h \
+  /Users/yasmeeneltayeb/Desktop/Diss/external/imgui/imconfig.h \
+  /Users/yasmeeneltayeb/Desktop/Diss/external/imgui/imgui.h \
   /Users/yasmeeneltayeb/Desktop/Diss/external/stb_perlin.h \
   /Users/yasmeeneltayeb/Desktop/Diss/src/ArcballCamera.hpp \
   /Users/yasmeeneltayeb/Desktop/Diss/src/Camera.hpp \
@@ -3191,6 +3195,7 @@ CMakeFiles/OpenGLApp.dir/src/Main.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/src/
   /Users/yasmeeneltayeb/Desktop/Diss/src/Scene.hpp \
   /Users/yasmeeneltayeb/Desktop/Diss/src/Texture.hpp \
   /Users/yasmeeneltayeb/Desktop/Diss/src/Texture3D.hpp \
+  /Users/yasmeeneltayeb/Desktop/Diss/src/imguiSetting.hpp \
   /Users/yasmeeneltayeb/Desktop/Diss/src/loadPipe.h \
   /opt/homebrew/include/GL/glew.h \
   /opt/homebrew/include/GLFW/glfw3.h \
@@ -9371,6 +9376,8 @@ CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/
 
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/__stddef_offsetof.h:
 
+/Users/yasmeeneltayeb/Desktop/Diss/src/imguiSetting.hpp:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/PrintCore.framework/Headers/PMPrintingDialogExtensions.h:
 
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/__stddef_nullptr_t.h:
@@ -9594,10 +9601,6 @@ CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stddef.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_caddr_t.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/bounded_iter.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/fstream:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Headers/DriverSynchronization.h:
 
@@ -10068,6 +10071,10 @@ CMakeFiles/OpenGLApp.dir/src/loadPipe.cpp.o: /Users/yasmeeneltayeb/Desktop/Diss/
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/is_nothrow_destructible.h:
 
 /opt/homebrew/include/glm/gtc/constants.inl:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/fstream:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/bounded_iter.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/ApplicationServices.framework/Frameworks/HIServices.framework/Headers/AXValueConstants.h:
 

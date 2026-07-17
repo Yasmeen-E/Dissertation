@@ -19,6 +19,7 @@ using namespace glm;
 
 #include "loadPipe.h"
 #include "ImguiLayer.h"
+#include "imguiSetting.hpp"
 
 
 
@@ -98,6 +99,8 @@ int main( void )
 	ImGuiLayer imguiLayer;
     imguiLayer.Init(window,"#version 150");
 
+	Settings setting;
+
 	//background
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LESS);
@@ -158,12 +161,6 @@ int main( void )
 	scene.addModel(house);
 	//need to add scale to shaders
 
-	// auto tree = std::make_shared<Model>("OBJs/tree/Tree.obj", "OBJs/tree/Tree_Diffuse.png");
-	// glm::mat4 tt = glm::mat4(1.0f);
-	// tt = glm::translate(tt, glm::vec3(20.f, 3.f, -3.f)); 
-	// tree->transform = glm::scale(tt, glm::vec3(0.5f, 0.5f, 0.5f));
-	// scene.addModel(tree);
-
 	auto bench = std::make_shared<Model>("OBJs/Crate.obj", "OBJs/Crate.png");
 	glm::mat4 b = glm::mat4(1.0f);
 	b = glm::translate(b, glm::vec3(30.f, 0.f, 30.f)); 
@@ -176,8 +173,6 @@ int main( void )
 	// Move it, scale it etc
 	//ground->transform = glm::translate(glm::mat4(1.0f), glm::vec3(0.f, -1.f, 0.f));
 	scene.addGround(ground);
-
-	
 
 
 	printf("models loaded\n"); 
@@ -200,8 +195,7 @@ int main( void )
 		flythrough.update(deltaTime);
 		arcball.update(deltaTime);
 
-		float angle = glfwGetTime() * 0.2f;
-		glm::vec3 snowDirection = glm::normalize(glm::vec3(sin(angle), -1.0f, cos(angle)));
+		glm::vec3 snowDirection = glm::normalize(glm::vec3(sin(setting.windAngle), -1.0f, cos(setting.windAngle)));
 
 		//preprocessing (for now) (shadow mapping)
 		glViewport(0, 0, OC_MAP_WIDTH, OC_MAP_HEIGHT);
@@ -239,34 +233,35 @@ int main( void )
 		//draw scene
 		scene.draw(sceneID);
 
+		if (setting.snow)
+		{
+			
+			glEnable(GL_BLEND);
+			glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-		glEnable(GL_BLEND);
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+			//draw snow with displaces vertex
+			glUseProgram(snowID);
+			glActiveTexture(GL_TEXTURE0);
+			glBindTexture(GL_TEXTURE_2D, occlude.Texture);
+			glUniformMatrix4fv(glGetUniformLocation(snowID, "projectedLightSpaceMatrix"), 1, GL_FALSE, glm::value_ptr(getOrtho(snowDirection)));
+			glUniform3f(glGetUniformLocation(snowID, "snowDirection"),0.f , -1.f, 0.f);
+			glUniform3fv(glGetUniformLocation(snowID, "lightDirection"), 1, glm::value_ptr(LightDirection));
+			glUniform1f(glGetUniformLocation(snowID, "t"), setting.time);
 
+			//bind 3D Perlin Noise texture
+			glActiveTexture(GL_TEXTURE2);
+			glBindTexture(GL_TEXTURE_3D, texnoise3d);
+			glUniform1i(glGetUniformLocation(snowID, "NoiseSampler"), 2);
 
-
-		//draw snow with displaces vertex
-		glUseProgram(snowID);
-		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, occlude.Texture);
-		glUniformMatrix4fv(glGetUniformLocation(snowID, "projectedLightSpaceMatrix"), 1, GL_FALSE, glm::value_ptr(getOrtho(snowDirection)));
-		glUniform3f(glGetUniformLocation(snowID, "snowDirection"),0.f , -1.f, 0.f);
-		glUniform3fv(glGetUniformLocation(snowID, "lightDirection"), 1, glm::value_ptr(LightDirection));
-		glUniform1f(glGetUniformLocation(snowID, "t"), 0.5f);
-
-		//bind 3D Perlin Noise texture
-		glActiveTexture(GL_TEXTURE2);
-		glBindTexture(GL_TEXTURE_3D, texnoise3d);
-		glUniform1i(glGetUniformLocation(snowID, "NoiseSampler"), 2);
-
-		//draw scene
-		scene.draw(snowID);
-		glDisable(GL_BLEND);
+			//draw scene
+			scene.draw(snowID);
+			glDisable(GL_BLEND);
+		}
 
 
 		//draw imgui
 		imguiLayer.BeginFrame();
-        imguiLayer.DrawUI();
+        imguiLayer.DrawUI(setting);
         imguiLayer.EndFrame();
 
 		// Swap buffers

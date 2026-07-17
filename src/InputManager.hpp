@@ -2,6 +2,8 @@
 #include <GLFW/glfw3.h>
 #include "FlythroughCamera.hpp"
 #include "ArcballCamera.hpp"
+#include "imgui.h"
+#include "backends/imgui_impl_glfw.h"
 
 enum class CameraMode { Flythrough, Arcball };
 
@@ -15,7 +17,7 @@ public:
         glfwSetMouseButtonCallback(window, mouseButtonCallback);
 
         // start with cursor locked for flythrough
-        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
     }
 
     void setFlythroughCamera(FlythroughCamera* cam) { flythrough = cam; }
@@ -33,7 +35,7 @@ public:
 private:
     FlythroughCamera* flythrough  = nullptr;
     ArcballCamera*    arcball     = nullptr;
-    CameraMode        mode        = CameraMode::Flythrough;
+    CameraMode        mode        = CameraMode::Arcball;
 
     float lastX      = 0.0f;
     float lastY      = 0.0f;
@@ -50,7 +52,7 @@ private:
         } else {
             mode = CameraMode::Flythrough;
             // lock cursor for flythrough
-            glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+            glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
         }
         firstMouse = true; // prevent jump on switch
     }
@@ -65,6 +67,9 @@ private:
             return;
         }
 
+        ImGuiIO& io = ImGui::GetIO();
+        if (io.WantCaptureKeyboard) return;
+
         // arrow keys — flythrough only
         if (self->mode == CameraMode::Flythrough && self->flythrough) {
             if (key == GLFW_KEY_UP)    self->flythrough->setKey(0, pressed);
@@ -75,7 +80,13 @@ private:
     }
 
     static void mouseButtonCallback(GLFWwindow* window, int button, int action, int mods) {
+
+        ImGui_ImplGlfw_MouseButtonCallback(window, button, action, mods);
+
+         ImGuiIO& io = ImGui::GetIO();
+          if (io.WantCaptureMouse) return; 
         auto* self = (InputManager*)glfwGetWindowUserPointer(window);
+
 
         // mouse buttons only used in arcball mode
         if (self->mode == CameraMode::Arcball) {
@@ -88,6 +99,8 @@ private:
             if (action == GLFW_PRESS)
                 self->firstMouse = true;
         }
+
+        
 
     }
 
@@ -106,6 +119,9 @@ private:
         self->lastX = xpos;
         self->lastY = ypos;
 
+        ImGuiIO& io = ImGui::GetIO();
+        if (io.WantCaptureMouse) return; 
+
         if (self->mode == CameraMode::Flythrough && self->flythrough) {
             // flythrough — mouse always looks around
             self->flythrough->processMouseMove(xOffset, yOffset);
@@ -120,6 +136,9 @@ private:
 
     static void scrollCallback(GLFWwindow* window, double xOffset, double yOffset) {
         auto* self = (InputManager*)glfwGetWindowUserPointer(window);
+
+        ImGuiIO& io = ImGui::GetIO();
+        if (io.WantCaptureMouse) return;
 
         // scroll only zooms arcball
         if (self->mode == CameraMode::Arcball && self->arcball)

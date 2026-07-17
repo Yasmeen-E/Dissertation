@@ -1,6 +1,7 @@
 CMakeFiles/OpenGLApp.dir/src/ImguiLayer.cpp.o: \
   /Users/yasmeeneltayeb/Desktop/Diss/src/ImguiLayer.cpp \
   /Users/yasmeeneltayeb/Desktop/Diss/src/ImguiLayer.h \
+  /Users/yasmeeneltayeb/Desktop/Diss/src/imguiSetting.hpp \
   /Users/yasmeeneltayeb/Desktop/Diss/external/imgui/imgui.h \
   /Users/yasmeeneltayeb/Desktop/Diss/external/imgui/imconfig.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/float.h \
