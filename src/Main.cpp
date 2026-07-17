@@ -18,6 +18,8 @@ GLFWwindow* window;
 using namespace glm;
 
 #include "loadPipe.h"
+#include "ImguiLayer.h"
+
 
 
 //Camera things
@@ -67,7 +69,7 @@ int main( void )
 	glfwWindowHint(GLFW_SAMPLES, 4);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // To make macOS happy; should not be needed
+	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // for mac needed 
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	// Open a window and create its OpenGL context
@@ -89,8 +91,12 @@ int main( void )
 		return -1;
 	}
 
-	// Ensure we can capture the escape key being pressed below
 	glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
+
+
+	//set up Imgui
+	ImGuiLayer imguiLayer;
+    imguiLayer.Init(window,"#version 150");
 
 	//background
 	glEnable(GL_DEPTH_TEST);
@@ -140,7 +146,7 @@ int main( void )
 	auto lamp = std::make_shared<Model>("OBJs/SpotLamp/Lamp.obj", "OBJs/SpotLamp/render_d.png");
 	glm::mat4 sl = glm::mat4(1.0f);
 
-	sl = glm::translate(sl, glm::vec3(2.f, 3.f, -3.f)); 
+	sl = glm::translate(sl, glm::vec3(0.f, 0.f, 50.f)); 
 	sl = glm::scale(sl, glm::vec3(15.f, 15.f, 15.f)); 
 	lamp->transform = sl;
 
@@ -152,14 +158,31 @@ int main( void )
 	scene.addModel(house);
 	//need to add scale to shaders
 
-	auto tree = std::make_shared<Model>("OBJs/tree/Tree.obj", "OBJs/tree/Tree_Diffuse.png");
-	glm::mat4 tt = glm::mat4(1.0f);
-	tt = glm::translate(tt, glm::vec3(20.f, 3.f, -3.f)); 
-	tree->transform = glm::scale(tt, glm::vec3(0.5f, 0.5f, 0.5f));
-	scene.addModel(tree);
+	// auto tree = std::make_shared<Model>("OBJs/tree/Tree.obj", "OBJs/tree/Tree_Diffuse.png");
+	// glm::mat4 tt = glm::mat4(1.0f);
+	// tt = glm::translate(tt, glm::vec3(20.f, 3.f, -3.f)); 
+	// tree->transform = glm::scale(tt, glm::vec3(0.5f, 0.5f, 0.5f));
+	// scene.addModel(tree);
+
+	auto bench = std::make_shared<Model>("OBJs/Crate.obj", "OBJs/Crate.png");
+	glm::mat4 b = glm::mat4(1.0f);
+	b = glm::translate(b, glm::vec3(30.f, 0.f, 30.f)); 
+	bench->transform = glm::scale(b, glm::vec3(2.f, 2.f, 2.f));
+	scene.addModel(bench);
+
+
+	auto ground = std::make_shared<GroundPlane>(120.0f, 20, "OBJs/grass.jpg");
+
+	// Move it, scale it etc
+	//ground->transform = glm::translate(glm::mat4(1.0f), glm::vec3(0.f, -1.f, 0.f));
+	scene.addGround(ground);
+
+	
 
 
 	printf("models loaded\n"); 
+
+	//glm::vec3 snowDirection = glm::vec3 (0.f , -1.f, 0.f) ;
 
 
 	float lastFrame = 0.0f;
@@ -177,12 +200,15 @@ int main( void )
 		flythrough.update(deltaTime);
 		arcball.update(deltaTime);
 
+		float angle = glfwGetTime() * 0.2f;
+		glm::vec3 snowDirection = glm::normalize(glm::vec3(sin(angle), -1.0f, cos(angle)));
+
 		//preprocessing (for now) (shadow mapping)
 		glViewport(0, 0, OC_MAP_WIDTH, OC_MAP_HEIGHT);
 		glBindFramebuffer(GL_FRAMEBUFFER, occlude.FBO);
 		glClear(GL_DEPTH_BUFFER_BIT);
 		glUseProgram(occludeID);
-		glUniformMatrix4fv(glGetUniformLocation(occludeID, "projectedLightSpaceMatrix"), 1, GL_FALSE, glm::value_ptr(getOrtho()));
+		glUniformMatrix4fv(glGetUniformLocation(occludeID, "projectedLightSpaceMatrix"), 1, GL_FALSE, glm::value_ptr(getOrtho(snowDirection)));
 
 		scene.drawOcclude(occludeID);
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
@@ -223,7 +249,7 @@ int main( void )
 		glUseProgram(snowID);
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, occlude.Texture);
-		glUniformMatrix4fv(glGetUniformLocation(snowID, "projectedLightSpaceMatrix"), 1, GL_FALSE, glm::value_ptr(getOrtho()));
+		glUniformMatrix4fv(glGetUniformLocation(snowID, "projectedLightSpaceMatrix"), 1, GL_FALSE, glm::value_ptr(getOrtho(snowDirection)));
 		glUniform3f(glGetUniformLocation(snowID, "snowDirection"),0.f , -1.f, 0.f);
 		glUniform3fv(glGetUniformLocation(snowID, "lightDirection"), 1, glm::value_ptr(LightDirection));
 		glUniform1f(glGetUniformLocation(snowID, "t"), 0.5f);
@@ -237,6 +263,12 @@ int main( void )
 		scene.draw(snowID);
 		glDisable(GL_BLEND);
 
+
+		//draw imgui
+		imguiLayer.BeginFrame();
+        imguiLayer.DrawUI();
+        imguiLayer.EndFrame();
+
 		// Swap buffers
 		glfwSwapBuffers(window);
 		glfwPollEvents();
@@ -247,6 +279,7 @@ int main( void )
 
 
 	//clean	
+	imguiLayer.Shutdown();
 	glDeleteTextures(1,&texnoise3d);
 	glDeleteProgram(sceneID);
 	glDeleteProgram(snowID);

@@ -60,3 +60,34 @@ glm::mat4 getOrtho()
     return lightProjection * lightView;
 }
 
+
+
+glm::mat4 getOrtho(const glm::vec3& lightDir, const glm::vec3& sceneCenter = glm::vec3(0.f))
+{
+
+	
+    glm::vec3 dir = glm::normalize(lightDir);
+
+    float orthoSize  = 40.f;
+    float nearPlane  = 1.f;
+    float farPlane   = 200.f;
+    float distance   = 100.f; 
+
+    glm::vec3 position = sceneCenter - dir * distance;
+
+    // Pick an up vector that isn't parallel to the light direction
+    glm::vec3 up = glm::vec3(0.f, 1.f, 0.f);
+    if (glm::abs(glm::dot(dir, up)) > 0.999f)
+        up = glm::vec3(0.f, 0.f, 1.f);
+
+    glm::mat4 lightView = glm::lookAt(position, sceneCenter, up);
+
+    glm::mat4 lightProjection = glm::ortho(
+        -orthoSize, orthoSize,
+        -orthoSize, orthoSize,
+        nearPlane, farPlane
+    );
+
+    return lightProjection * lightView;
+}
+

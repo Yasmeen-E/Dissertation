@@ -14,6 +14,7 @@ void Model::load(const char *filename, const char *fileTexturename) {
 
    //load in Texture gonna be done albedo for now
   auto tex = std::make_shared<Texture>(fileTexturename);
+    std::cout << "tex!" << std::endl;
 
 
   tinyobj::attrib_t attrib;
