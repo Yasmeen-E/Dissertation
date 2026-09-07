@@ -47,7 +47,7 @@ void ImGuiLayer::DrawUI(Settings& settings) {
 
     ImGui::Begin("Controls");
     ImGui::Checkbox("Snow", &settings.snow);
-    ImGui::SliderFloat("Time", &settings.time, 0.0f, 1.0f);
+    ImGui::SliderFloat("Time", &settings.time, 0.0f, 0.4f);
     ImGui::Checkbox("Wind", &settings.wind);
     if (settings.wind) {
     ImGui::Indent();

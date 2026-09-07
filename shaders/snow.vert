@@ -50,7 +50,7 @@ float incline = max(dot(vNormal, vec3(0.0, 1.0, 0.0)), 0.0);
 
 vec3 worldPos = (Model * vec4(iPosition, 1.0)).xyz;
 
-vec3 displacedWorldPos = worldPos + incline * vNormal * t;
+vec3 displacedWorldPos = worldPos + incline * vNormal * t  ;
 
 gl_Position = uScene.projView * vec4(displacedWorldPos, 1.0);
 FragPosProjectedLightSpace = projectedLightSpaceMatrix * vec4(displacedWorldPos, 1.0);
