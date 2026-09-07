@@ -7,10 +7,9 @@ find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
 find_package(GLEW REQUIRED)
 
-# Your own sources
 file(GLOB_RECURSE SOURCES "src/*.cpp")
 
-# ImGui sources (core + GLFW/OpenGL3 backend)
+# ImGui sources 
 set(IMGUI_DIR ${CMAKE_SOURCE_DIR}/External/imgui)
 set(IMGUI_SOURCES
     ${IMGUI_DIR}/imgui.cpp
