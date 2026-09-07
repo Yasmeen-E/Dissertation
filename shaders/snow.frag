@@ -24,17 +24,17 @@ float noise(vec2 uv)
 
 
 vec3 sampleNoiseOctaves(vec3 p) {
-    vec3 sum = vec3(0.0);
-    float amplitude = 0.5;
+    vec3 noise = vec3(0.0);
+    float amplitude = 1;
     float frequency = 1.0;
 
     for (int i = 0; i < 3; i++) {
-        sum += texture(NoiseSampler, p * frequency).rgb * amplitude;
+        noise += texture(NoiseSampler, p * frequency).rgb * amplitude;
         frequency *= 2.0;
         amplitude *= 0.5;
     }
 
-    return sum * 2.0 - 1.0;
+    return noise * 2.0 - 1.0;
 }
 
 float shadowPCFFragment(vec4 FragPosProjectedLightSpace)
@@ -104,6 +104,33 @@ vec3 GetDistoredNormal(vec3 normal, float scalar)
 }
 
 
+float shadowOnFragment(vec4 FragPosProjectedLightSpace)
+{
+	vec3 ndc = FragPosProjectedLightSpace.xyz / FragPosProjectedLightSpace.w;
+	vec3 ss = (ndc+1) * 0.5;
+
+  if(ss.x < 0.0 || ss.x > 1.0 || ss.y < 0.0 || ss.y > 1.0)
+        return 0.0;
+
+	float fragDepth = ss.z;
+	float litDepth = texture(shadowMap, ss.xy).r;
+
+	vec3 Nnor = normalize(vNormal);
+	vec3 Ntolight = normalize(-SnowDirection);
+	float bias = max(0.005 * (1.0 - dot(Nnor, Ntolight)),0.001);
+
+	float shadow = 0.f;
+	shadow = fragDepth > (litDepth + bias) ? 1.0:0.0;
+
+	if(fragDepth > 1)
+		shadow = 0.f;
+
+	return shadow;
+
+
+}
+
+
 
 float PhongSnowLighting()
 {
@@ -144,17 +171,17 @@ void main(){
 
     vec3 raw = texture(NoiseSampler, FragPosWorldSpace * 0.5).rgb;
    // color = vec4(raw, 1.0);
-
-
-    float shadow = shadowPCFFragment(FragPosProjectedLightSpace);
-
+   float shadow = shadowPCFFragment(FragPosProjectedLightSpace);
+    //float shadow = shadowOnFragment(FragPosProjectedLightSpace);
     vec3 N = normalize(vNormal);
-    //A = E * ( N . Up )
+
     float E = 1.f- shadow;
 
     vec3 ndc = FragPosProjectedLightSpace.xyz / FragPosProjectedLightSpace.w;
 	  vec3 ss = (ndc+1) * 0.5;
 
+
+    //add noise to bounday
     if(E > 0.0)
   {
 
@@ -163,15 +190,12 @@ void main(){
 
   }
 
+    //A = E * ( N . Up )
     float A = E * max(dot(N, vec3(0.0, 1.0, 0.0)), 0.0);
     vec3 snowColor = PhongSnowColour() * PhongSnowLighting(); 
 
-
-
     if (A < 0.01)
         discard;
-     
-    //color = vec4(raw, 1.0);
     color =  vec4(snowColor, A);
 
 }

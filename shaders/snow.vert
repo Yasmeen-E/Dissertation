@@ -44,7 +44,7 @@ vec3 sampleNoiseOctaves(vec3 p) {
 void main(){
 
 
-    vNormal = normalize(mat3(transpose(inverse(Model))) * iNormal);
+ vNormal = normalize(mat3(transpose(inverse(Model))) * iNormal);
 
 float incline = max(dot(vNormal, vec3(0.0, 1.0, 0.0)), 0.0);
 

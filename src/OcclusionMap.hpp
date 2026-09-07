@@ -62,11 +62,11 @@ glm::mat4 getOrtho()
 
 
 
-glm::mat4 getOrtho(const glm::vec3& lightDir, const glm::vec3& sceneCenter = glm::vec3(0.f))
+glm::mat4 getOrtho(const glm::vec3& Direction, const glm::vec3& sceneCenter = glm::vec3(0.f))
 {
 
 	
-    glm::vec3 dir = glm::normalize(lightDir);
+    glm::vec3 dir = glm::normalize(Direction);
 
     float orthoSize  = 60.f;
     float nearPlane  = 1.f;

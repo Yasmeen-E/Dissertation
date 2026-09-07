@@ -1,17 +1,17 @@
 #pragma once
-// Include standard headers
+
 #include <stdio.h>
 #include<iostream>
 #include <stdlib.h>
 #include <memory>
-// Include GLEW
+//Eval
+#include <chrono>
+//GLEW
 #include  <GL/glew.h> 
-
-// Include GLFW
+// GLFW
 #include <GLFW/glfw3.h>
 GLFWwindow* window;
-
-// Include GLM
+// GLM
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -21,12 +21,11 @@ using namespace glm;
 #include "ImguiLayer.h"
 #include "imguiSetting.hpp"
 
-
-
-//Camera things
+//Camera 
 #include "ArcballCamera.hpp"
 #include "FlythroughCamera.hpp"
 #include "InputManager.hpp"
+
 #include "OcclusionMap.hpp"
 #include "Scene.hpp"
 #include "Texture3D.hpp"
@@ -83,6 +82,7 @@ int main( void )
 	}
 	glfwMakeContextCurrent(window);
 	glfwSetWindowSizeCallback(window, SizeCallback);
+	glfwSwapInterval(0);//v-sync
 
 	// Initialize GLEW
 	if (glewInit() != GLEW_OK) {
@@ -93,7 +93,6 @@ int main( void )
 	}
 
 	glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
-
 
 	//set up Imgui
 	ImGuiLayer imguiLayer;
@@ -141,49 +140,64 @@ int main( void )
 	glUniformBlockBinding(sceneID, blockIndex2, 0);
 
 	//setup 3D noise texture
-	GLuint texnoise3d= createPerlinTexture3D(32);
+	GLuint texnoise3d= createPerlinTexture3D(64);
 	vec3 LightDirection = vec3(0.0f, -1.0f, 0.0f);
 
     //initialise 
 	Scene scene;
-	auto lamp = std::make_shared<Model>("OBJs/SpotLamp/Lamp.obj", "OBJs/SpotLamp/render_d.png");
-	glm::mat4 sl = glm::mat4(1.0f);
+	// auto lamp = std::make_shared<Model>("OBJs/SpotLamp/Lamp.obj", "OBJs/SpotLamp/render_d.png");
+	// glm::mat4 sl = glm::mat4(1.0f);
 
-	sl = glm::translate(sl, glm::vec3(0.f, 0.f, 50.f)); 
-	sl = glm::scale(sl, glm::vec3(15.f, 15.f, 15.f)); 
-	lamp->transform = sl;
+	// sl = glm::translate(sl, glm::vec3(0.f, 0.f, 50.f)); 
+	// sl = glm::scale(sl, glm::vec3(15.f, 15.f, 15.f)); 
+	// lamp->transform = sl;
 
-	scene.addModel(lamp);
+	// scene.addModel(lamp);
 
-	auto house = std::make_shared<Model>("OBJs/Haus.obj", "OBJs/Haus.jpg");
-	glm::mat4 l = glm::mat4(1.0f);
-	house->transform = glm::scale(l, glm::vec3(0.25f, 0.25f, 0.25f));
-	scene.addModel(house);
-	//need to add scale to shaders
+	// auto house = std::make_shared<Model>("OBJs/Haus.obj", "OBJs/Haus.jpg");
+	// glm::mat4 l = glm::mat4(1.0f);
+	// house->transform = glm::scale(l, glm::vec3(0.25f, 0.25f, 0.25f));
+	// scene.addModel(house);
+	// //need to add scale to shaders
 
-	auto bench = std::make_shared<Model>("OBJs/Crate.obj", "OBJs/Crate.png");
-	glm::mat4 b = glm::mat4(1.0f);
-	b = glm::translate(b, glm::vec3(30.f, 0.f, 30.f)); 
-	bench->transform = glm::scale(b, glm::vec3(2.f, 2.f, 2.f));
-	scene.addModel(bench);
+	// auto bench = std::make_shared<Model>("OBJs/Crate.obj", "OBJs/Crate.png");
+	// glm::mat4 b = glm::mat4(1.0f);
+	// b = glm::translate(b, glm::vec3(30.f, 0.f, 30.f)); 
+	// bench->transform = glm::scale(b, glm::vec3(2.f, 2.f, 2.f));
+	// scene.addModel(bench);
 
 
-	auto ground = std::make_shared<GroundPlane>(120.0f, 20, "OBJs/grass.jpg");
+	// auto ground = std::make_shared<GroundPlane>(120.0f, 20, "OBJs/grass.jpg");
+
+	// auto cruiser = std::make_shared<Model>("OBJs/test/cruiser/cruiser.obj", "OBJs/test/cruiser/cruiser.bmp");
+	// scene.addModel(cruiser);
+
+	// shadow maps are hella big and pcf pretty much gets rid of everythign something to do with scale ig
+	auto dragon = std::make_shared<Model>("OBJs/test/dragon.obj", "OBJs/test/f16/f1s.bmp");
+	scene.addModel(dragon);
+
+	// auto bunny = std::make_shared<Model>("OBJs/test/bunny.obj", "OBJs/test/f16/f1s.bmp");
+	// scene.addModel(bunny);
+
+	// auto suzanne = std::make_shared<Model>("OBJs/test/suzanne/suzanne.obj", "OBJs/test/f16/f1s.bmp");
+	// scene.addModel(suzanne);
+
+	//auto f16 = std::make_shared<Model>("OBJs/test/f16/f16.obj", "OBJs/test/f16/f16s.bmp");
+	//scene.addModel(f16);
 
 	// Move it, scale it etc
 	//ground->transform = glm::translate(glm::mat4(1.0f), glm::vec3(0.f, -1.f, 0.f));
-	scene.addGround(ground);
+	//scene.addGround(ground);
 
 
 	printf("models loaded\n"); 
-
-	//glm::vec3 snowDirection = glm::vec3 (0.f , -1.f, 0.f) ;
-
 
 	float lastFrame = 0.0f;
 
 	do{
 
+		auto frameStart = std::chrono::high_resolution_clock::now();
+		
 
 		int fbWidth, fbHeight;
     	glfwGetFramebufferSize(window, &fbWidth, &fbHeight);
@@ -271,6 +285,35 @@ int main( void )
 		// Swap buffers
 		glfwSwapBuffers(window);
 		glfwPollEvents();
+
+
+		auto frameEnd = std::chrono::high_resolution_clock::now();
+
+		double frameTime = std::chrono::duration<double, std::milli>(
+			frameEnd - frameStart
+		).count();
+
+    	double fps = 1000.0 / frameTime;
+
+		//print the fps every second
+		static double fpsTimer = 0.0;
+		static int frameCount = 0;
+
+		fpsTimer += frameTime;
+		frameCount++;
+
+		if (fpsTimer >= 1000.0) {
+			double averageFPS = frameCount / (fpsTimer / 1000.0);
+
+			std::cout << "FPS: " << averageFPS
+					<< " | Frame time: " << fpsTimer / frameCount
+					<< " ms\n";
+
+			fpsTimer = 0.0;
+			frameCount = 0;
+		}
+	
+
 
 	} // Check if the ESC key was pressed or the window was closed
 	while( glfwGetKey(window, GLFW_KEY_ESCAPE ) != GLFW_PRESS &&
