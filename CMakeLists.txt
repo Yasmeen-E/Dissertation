@@ -11,7 +11,7 @@ find_package(GLEW REQUIRED)
 file(GLOB_RECURSE SOURCES "src/*.cpp")
 
 # ImGui sources (core + GLFW/OpenGL3 backend)
-set(IMGUI_DIR ${CMAKE_SOURCE_DIR}/external/imgui)
+set(IMGUI_DIR ${CMAKE_SOURCE_DIR}/External/imgui)
 set(IMGUI_SOURCES
     ${IMGUI_DIR}/imgui.cpp
     ${IMGUI_DIR}/imgui_draw.cpp
@@ -25,7 +25,7 @@ set(IMGUI_SOURCES
 add_executable(${PROJECT_NAME} ${SOURCES} ${IMGUI_SOURCES})
 
 target_include_directories(${PROJECT_NAME} PRIVATE
-    ${CMAKE_SOURCE_DIR}/external
+    ${CMAKE_SOURCE_DIR}/External
     ${CMAKE_SOURCE_DIR}/src
     ${IMGUI_DIR}
     ${IMGUI_DIR}/backends

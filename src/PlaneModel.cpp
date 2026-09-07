@@ -108,7 +108,7 @@ void GroundPlane::draw(GLuint shader) const
     glUniformMatrix4fv(glGetUniformLocation(shader, "Model"),
                        1, GL_FALSE, glm::value_ptr(transform));
 
-    texture->bind(1);  // ✅ your existing bind method
+    texture->bind(1); 
     glUniform1i(glGetUniformLocation(shader, "TextureSampler"), 1);
 
     glBindVertexArray(VAO);
