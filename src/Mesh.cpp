@@ -1,4 +1,3 @@
-// Mesh.cpp
 #include "Mesh.hpp"
 
 Mesh::Mesh(std::vector<Vertex>& vertices)

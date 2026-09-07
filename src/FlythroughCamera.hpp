@@ -19,8 +19,8 @@ public:
 
         if (keys[0]) position += front * velocity;  // up arrow    - forward
         if (keys[1]) position -= front * velocity;  // down arrow  - backward
-        if (keys[2]) position -= right * velocity;  // left arrow  - strafe left
-        if (keys[3]) position += right * velocity;  // right arrow - strafe right
+        if (keys[2]) position -= right * velocity;  // left arrow  - left
+        if (keys[3]) position += right * velocity;  // right arrow - right
     }
 
 
