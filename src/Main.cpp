@@ -145,38 +145,38 @@ int main( void )
 
     //initialise 
 	Scene scene;
-	auto lamp = std::make_shared<Model>("OBJs/SpotLamp/Lamp.obj", "OBJs/SpotLamp/render_d.png");
-	glm::mat4 sl = glm::mat4(1.0f);
+	// auto lamp = std::make_shared<Model>("OBJs/SpotLamp/Lamp.obj", "OBJs/SpotLamp/render_d.png");
+	// glm::mat4 sl = glm::mat4(1.0f);
 
-	sl = glm::translate(sl, glm::vec3(0.f, 0.f, 50.f)); 
-	sl = glm::scale(sl, glm::vec3(15.f, 15.f, 15.f)); 
-	lamp->transform = sl;
+	// sl = glm::translate(sl, glm::vec3(0.f, 0.f, 50.f)); 
+	// sl = glm::scale(sl, glm::vec3(15.f, 15.f, 15.f)); 
+	// lamp->transform = sl;
 
-	scene.addModel(lamp);
+	// scene.addModel(lamp);
 
-	auto house = std::make_shared<Model>("OBJs/Haus.obj", "OBJs/Haus.jpg");
-	glm::mat4 l = glm::mat4(1.0f);
-	house->transform = glm::scale(l, glm::vec3(0.25f, 0.25f, 0.25f));
-	scene.addModel(house);
+	// auto house = std::make_shared<Model>("OBJs/Haus.obj", "OBJs/Haus.jpg");
+	// glm::mat4 l = glm::mat4(1.0f);
+	// house->transform = glm::scale(l, glm::vec3(0.25f, 0.25f, 0.25f));
+	// scene.addModel(house);
 	//need to add scale to shaders
 
-	auto bench = std::make_shared<Model>("OBJs/Crate.obj", "OBJs/Crate.png");
-	glm::mat4 b = glm::mat4(1.0f);
-	b = glm::translate(b, glm::vec3(30.f, 0.f, 30.f)); 
-	bench->transform = glm::scale(b, glm::vec3(2.f, 2.f, 2.f));
-	scene.addModel(bench);
+	// auto bench = std::make_shared<Model>("OBJs/Crate.obj", "OBJs/Crate.png");
+	// glm::mat4 b = glm::mat4(1.0f);
+	// b = glm::translate(b, glm::vec3(30.f, 0.f, 30.f)); 
+	// bench->transform = glm::scale(b, glm::vec3(2.f, 2.f, 2.f));
+	// scene.addModel(bench);
 
 
-	auto ground = std::make_shared<GroundPlane>(120.0f, 20, "OBJs/grass.jpg");
-	ground->transform = glm::translate(glm::mat4(1.0f), glm::vec3(0.f, -1.f, 0.f));
-	scene.addGround(ground);
+	// auto ground = std::make_shared<GroundPlane>(120.0f, 20, "OBJs/grass.jpg");
+	// ground->transform = glm::translate(glm::mat4(1.0f), glm::vec3(0.f, -1.f, 0.f));
+	// scene.addGround(ground);
 
-	auto cruiser = std::make_shared<Model>("OBJs/test/cruiser/cruiser.obj", "OBJs/test/cruiser/cruiser.bmp");
-	scene.addModel(cruiser);
+	// auto cruiser = std::make_shared<Model>("OBJs/test/cruiser/cruiser.obj", "OBJs/test/cruiser/cruiser.bmp");
+	// scene.addModel(cruiser);
 
-	//shadow maps are hella big and pcf pretty much gets rid of everythign something to do with scale ig
-	// auto dragon = std::make_shared<Model>("OBJs/test/dragon.obj", "OBJs/test/f16/f1s.bmp");
-	// scene.addModel(dragon);
+
+	auto dragon = std::make_shared<Model>("OBJs/test/dragon.obj", "OBJs/test/f16/f1s.bmp");
+	scene.addModel(dragon);
 
 	// auto bunny = std::make_shared<Model>("OBJs/test/bunny.obj", "OBJs/test/f16/f1s.bmp");
 	// scene.addModel(bunny);
@@ -184,8 +184,8 @@ int main( void )
 	// auto suzanne = std::make_shared<Model>("OBJs/test/suzanne/suzanne.obj", "OBJs/test/f16/f1s.bmp");
 	// scene.addModel(suzanne);
 
-	//auto f16 = std::make_shared<Model>("OBJs/test/f16/f16.obj", "OBJs/test/f16/f16s.bmp");
-	//scene.addModel(f16);
+	// auto f16 = std::make_shared<Model>("OBJs/test/f16/f16.obj", "OBJs/test/f16/f16s.bmp");
+	// scene.addModel(f16);
 
 
 
